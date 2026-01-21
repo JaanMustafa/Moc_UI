@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary-50: 220 100% 97%;
+    --color-primary-500: 220 90% 56%;
+    --color-primary-600: 220 85% 48%;
+    --color-primary-700: 220 80% 40%;
+
+    /* Success (Completed) */
+    --color-success-50: 142 76% 95%;
+    --color-success-500: 142 71% 45%;
+    --color-success-600: 142 76% 36%;
+
+    /* Warning (Pending) */
+    --color-warning-50: 48 100% 95%;
+    --color-warning-500: 48 96% 53%;
+    --color-warning-600: 48 96% 45%;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f9fafb;
+    color: #111827;
+  }
+}
+
+@layer components {
+  .todo-card {
+    transition: all 200ms ease-in-out;
+  }
+
+  .todo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .fade-in {
+    animation: fadeIn 300ms ease-in;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shimmer loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
+  background-size: 1000px 100%;
+}
